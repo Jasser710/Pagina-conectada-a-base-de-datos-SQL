@@ -5,7 +5,7 @@ import mysql.connector
 from fastapi.middleware.cors import CORSMiddleware
 
 # Importas tu inicializador de base de datos
-from Backend.database import create_db_and_tables
+from backend.database import create_db_and_tables
 
 # Ejecutar creación de BD y tabla
 create_db_and_tables()
