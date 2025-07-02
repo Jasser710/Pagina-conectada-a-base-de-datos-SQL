@@ -1,20 +1,19 @@
-# main.py
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
 import mysql.connector
 from fastapi.middleware.cors import CORSMiddleware
 
-# 👇 Importas tu inicializador de base de datos
+# Importas tu inicializador de base de datos
 from Backend.database import create_db_and_tables
 
-# 🚀 Ejecutar creación de BD y tabla
+# Ejecutar creación de BD y tabla
 create_db_and_tables()
 
-# ⚙️ Crear instancia de FastAPI
+#  Crear instancia de FastAPI
 app = FastAPI()
 
-# 🔓 Habilitar CORS para frontend local
+# Habilitar CORS para frontend local
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # O restringe si quieres
@@ -22,16 +21,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ✅ Función para abrir conexión
+# Función para abrir conexión
 def get_connection():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="J7102006", #DEBE COLOCAR LA CONTRASEÑA QUE LE PUSO A SU SQL
+        password="", #DEBE COLOCAR LA CONTRASEÑA QUE LE PUSO A SU SQL
         database="datagrow"
     )
 
-# 🗂️ Pydantic Model para validar datos
+# Pydantic Model para validar datos
 class Actividad(BaseModel):
     cultivo: str
     tarea: str
@@ -39,7 +38,7 @@ class Actividad(BaseModel):
     estado: str
     descripcion: str
 
-# 📥 GET all actividades
+# GET all actividades
 @app.get("/actividades", response_model=List[dict])
 def get_actividades():
     conn = get_connection()
@@ -63,7 +62,7 @@ def get_actividad(actividad_id: int):
         raise HTTPException(status_code=404, detail="Actividad no encontrada")
     return act
 
-# 📝 POST crear actividad
+# POST crear actividad
 @app.post("/actividades")
 def create_actividad(act: Actividad):
     conn = get_connection()
@@ -77,7 +76,7 @@ def create_actividad(act: Actividad):
     conn.close()
     return {"message": "Actividad creada"}
 
-# ✏️ PUT actualizar actividad
+# PUT actualizar actividad
 @app.put("/actividades/{actividad_id}")
 def update_actividad(actividad_id: int, act: Actividad):
     conn = get_connection()
@@ -91,7 +90,7 @@ def update_actividad(actividad_id: int, act: Actividad):
     conn.close()
     return {"message": "Actividad actualizada"}
 
-# ❌ DELETE eliminar actividad
+# DELETE eliminar actividad
 @app.delete("/actividades/{actividad_id}")
 def delete_actividad(actividad_id: int):
     conn = get_connection()
@@ -101,4 +100,3 @@ def delete_actividad(actividad_id: int):
     cursor.close()
     conn.close()
     return {"message": "Actividad eliminada"}
-
