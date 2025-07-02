@@ -63,7 +63,7 @@ def get_connection():
     )
 ```
 
-➡️ Cambia `password=""` por la contraseña que usas para entrar a tu servidor MySQL.  
+➡️ Debes colocar tú contraseña  entre las comillas `password="tu_contraseña"` para entrar a tu servidor MySQL.  
 Si no tienes contraseña, deja `""`, pero lo recomendado es tener una.
 
 ---
