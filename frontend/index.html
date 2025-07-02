@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataGrow - Dashboard Agrícola Sostenible</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+<header class="header">
+  <div class="header-content">
+    <div class="logo">
+      <i class="icon-placeholder"></i>
+      <div>
+        <h1>DataGrow</h1>
+        <div class="tagline">Agricultura Regenerativa & Sostenible</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section --> 
+<section class="hero">
+  <div class="hero-content">
+    <h2>Bienvenido a DataGrow</h2>
+    <p>Controla tus cultivos, tareas y contribuye a una agricultura regenerativa</p>
+    <button class="cta-button" onclick="openModal()">
+      <i class="fas fa-plus"></i>
+      ¡Comenzar Ahora!
+    </button>
+  </div>
+</section>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="section-title">
+            <h3>Gestión de Cultivos y Tareas</h3>
+            <p>Administra tus actividades agrícolas de manera eficiente y sostenible</p>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="add-button" onclick="openModal()">
+                <i class="fas fa-plus"></i>
+                Nueva Actividad
+            </button>
+            <input type="text" class="search-box" placeholder="Buscar por cultivo, tarea o estado..." id="searchInput">
+        </div>
+
+        <!-- Table -->
+        <div class="table-container">
+            <table class="table" id="activitiesTable">
+                <thead>
+                    <tr>
+                        <th>Cultivo</th>
+                        <th>Tarea</th>
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                   
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="modalTitle">Nueva Actividad</h4>
+                <button class="close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="activityForm">
+                    <div class="form-group">
+                        <label for="cultivo">Cultivo:</label>
+                        <input type="text" id="cultivo" name="cultivo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tarea">Tarea:</label>
+                        <select id="tarea" name="tarea" required>
+                            <option value="">Seleccionar tarea</option>
+                            <option value="Siembra">Siembra</option>
+                            <option value="Riego">Riego</option>
+                            <option value="Fertilización">Fertilización</option>
+                            <option value="Control de Plagas">Control de Plagas</option>
+                            <option value="Cosecha">Cosecha</option>
+                            <option value="Preparación de Suelo">Preparación de Suelo</option>
+                            <option value="Poda">Poda</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha">Fecha:</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="estado">Estado:</label>
+                        <select id="estado" name="estado" required>
+                            <option value="">Seleccionar estado</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="en-progreso">En Progreso</option>
+                            <option value="completado">Completado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción:</label>
+                        <textarea id="descripcion" name="descripcion" placeholder="Detalles adicionales sobre la actividad..."></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary" onclick="closeModal()">Cancelar</button>
+                        <button type="submit" class="btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Inspirado en la naturaleza, impulsado por la tecnología </i></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

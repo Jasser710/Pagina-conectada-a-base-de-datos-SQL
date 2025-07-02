@@ -8,7 +8,7 @@ def create_db_and_tables():
         conn = mysql.connector.connect(
             host="localhost",
             user="root",
-            password=""
+            password="J7102006"
         )
         cursor = conn.cursor()
         
