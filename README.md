@@ -77,7 +77,7 @@ pip install fastapi uvicorn mysql-connector-python
 
 2️⃣ Ejecuta el backend:
 ```bash
-uvicorn main:app --reload
+uvicorn backend.main:app --reload
 ```
 
 3️⃣ Abre `index.html` en tu navegador.
@@ -105,5 +105,3 @@ ALTER TABLE actividades AUTO_INCREMENT = 1;
 - El frontend (`index.html`) se comunica con FastAPI vía `fetch` en `script.js`.
 
 ---
-
-🚀 ¡Listo! Ahora tienes un dashboard agrícola conectado a una base de datos.
