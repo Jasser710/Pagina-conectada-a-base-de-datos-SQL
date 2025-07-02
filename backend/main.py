@@ -6,7 +6,7 @@ import mysql.connector
 from fastapi.middleware.cors import CORSMiddleware
 
 # 👇 Importas tu inicializador de base de datos
-from backend.database import create_db_and_tables
+from Backend.database import create_db_and_tables
 
 # 🚀 Ejecutar creación de BD y tabla
 create_db_and_tables()
@@ -27,7 +27,7 @@ def get_connection():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="", #DEBE COLOCAR LA CONTRASEÑA QUE LE PUSO A SU SQL
+        password="J7102006", #DEBE COLOCAR LA CONTRASEÑA QUE LE PUSO A SU SQL
         database="datagrow"
     )
 
