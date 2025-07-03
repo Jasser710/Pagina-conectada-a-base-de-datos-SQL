@@ -105,3 +105,8 @@ ALTER TABLE actividades AUTO_INCREMENT = 1;
 - El frontend (`index.html`) se comunica con FastAPI vía `fetch` en `script.js`.
 
 ---
+
+
+Participantes 
+
+Jason Barrantes, Jasser Palacios, Junior Ramírez, Melany Ramírez
